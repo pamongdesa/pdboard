@@ -6,20 +6,20 @@ import {folderPath} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js
 
 export const backend={
     user:{
-        data:"https://api.do.my.id/data/user",
-        todo:"https://api.do.my.id/data/user/task/todo",
-        doing:"https://api.do.my.id/data/user/task/doing",
-        done:"https://api.do.my.id/data/user/task/done",
+        data:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/user",
+        todo:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/user/task/todo",
+        doing:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/user/task/doing",
+        done:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/user/task/done",
     },
     project:{
-        data:"https://api.do.my.id/data/proyek",
-        anggota:"https://api.do.my.id/data/proyek/anggota",
+        data:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/proyek",
+        anggota:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/proyek/anggota",
     },
     ux:{
-        feedback:"https://api.do.my.id/notif/ux/postfeedback",
-        laporan:"https://api.do.my.id/notif/ux/postlaporan",
-        rating:"https://api.do.my.id/notif/ux/rating",
-        meeting:"https://api.do.my.id/notif/ux/postmeeting",
+        feedback:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/notif/ux/postfeedback",
+        laporan:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/notif/ux/postlaporan",
+        rating:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/notif/ux/rating",
+        meeting:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/notif/ux/postmeeting",
     }
 }
 
