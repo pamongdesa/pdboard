@@ -58,7 +58,7 @@ function isiTaskList(result) {
     .replace("#LABEL#", "Chat");
   addChild("list", "tr", "", content);
   // Jalankan logika tambahan setelah addChild
-  runAfterAddChild(result.data);
+  runAfterAddChild(result.data,"list");
   }
 }
 
@@ -68,15 +68,15 @@ function isiSelesai(result) {
     .replace("#TASKNAME#", result.data.nama)
     .replace("#TASKID#", result.data.phone)
     .replace("#LABEL#", "Chat");
-  addChild("doing", "tr", "", content);
+  addChild("done", "tr", "", content);
   // Jalankan logika tambahan setelah addChild
-  runAfterAddChild(result.data);
+  runAfterAddChild(result.data,"done");
   }
   
 }
-function runAfterAddChild(value) {
+function runAfterAddChild(value,idtr) {
   // Temukan elemen tr yang baru saja ditambahkan
-  const rows = document.getElementById("list").getElementsByTagName("tr");
+  const rows = document.getElementById(idtr).getElementsByTagName("tr");
   const lastRow = rows[rows.length - 1];
 
   // Contoh: Tambahkan event listener atau manipulasi DOM lainnya
