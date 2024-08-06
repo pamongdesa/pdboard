@@ -13,6 +13,7 @@ export const backend={
     },
     helpdesk:{
         all:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/user/helpdesk/all",
+        masuk:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/user/helpdesk/masuk",
     },
     wa:{
         text:"https://api.wa.my.id/api/v2/send/message/text",

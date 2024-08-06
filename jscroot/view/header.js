@@ -22,6 +22,7 @@ function getUserFunction(result) {
       localStorage.setItem("status", "ok");
     }else{
       setInner("userPoint", "❌");
+      localStorage.setItem("status", "gagal");
     }
   } 
   else {

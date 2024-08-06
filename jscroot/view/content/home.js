@@ -24,15 +24,21 @@ export async function main() {
   await addCSSIn("assets/css/admin.css", id.content);
   setInner("biggreet", "Halo " + localStorage.getItem("nama"));
   getJSON(backend.helpdesk.all, "login", getCookie("login"), getUserTaskFunction);
+  getJSON(backend.helpdesk.masuk, "login", getCookie("login"), isiTaskList);
 }
 
 function getUserTaskFunction(result) {
   setInner("list", "");
-  setInner("bigtodo", "0");
   if (result.status === 200) {
-    setInner("bigtodo", result.data.todo);
-    setInner("bigdoing", result.data.done);
-    setInner("bigdone", result.data.all);
+    if (result.data.todo){
+      setInner("bigtodo", result.data.todo);
+    }
+    if(result.data.done){
+      setInner("bigdoing", result.data.done);
+    }
+    if (result.data.all){
+      setInner("bigdone", result.data.all);
+    }
     setInner("bigpoin", localStorage.getItem("status"));
     setInner(
       "subtitle",
@@ -43,14 +49,17 @@ function getUserTaskFunction(result) {
   }
 }
 
-function isiTaskList(value) {
-  let content = tableTemplate
-    .replace("#TASKNAME#", value.task)
-    .replace("#TASKID#", value._id)
-    .replace("#LABEL#", "Ambil");
+function isiTaskList(result) {
+  if(result.data){
+    let content = tableTemplate
+    .replace("#TASKNAME#", result.data.nama)
+    .replace("#TASKID#", result.data.phone)
+    .replace("#LABEL#", "Chat");
   addChild("list", "tr", "", content);
   // Jalankan logika tambahan setelah addChild
-  runAfterAddChild(value);
+  runAfterAddChild(result.data);
+  }
+  
 }
 
 function runAfterAddChild(value) {
@@ -62,13 +71,7 @@ function runAfterAddChild(value) {
   const button = lastRow.querySelector(".button");
   if (button) {
     button.addEventListener("click", () => {
-      putJSON(
-        backend.user.doing,
-        "login",
-        getCookie("login"),
-        { _id: value._id },
-        putTaskFunction
-      );
+      window.open("https://wa.me/"+value.phone, '_blank');
     });
   }
 }
