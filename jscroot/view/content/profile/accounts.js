@@ -1,5 +1,5 @@
 import { onClick,getValue,setValue,hide,show } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
-import {postJSON,getJSON} from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
+import {postJSON,getJSON,get} from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {addCSSIn} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
@@ -8,60 +8,48 @@ import { id, backend } from "/dashboard/jscroot/url/config.js";
 
 export async function main(){
     await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css",id.content);
-    getJSON(backend.user.data,"login",getCookie("login"),getUserFunction);
-    onClick("buttonkirimaccount",actionfunctionname);
-}
-
-function actionfunctionname(){
-    let user={
-        email:getValue("email"),
-        githubusername:getValue("githubusername"),
-        gitlabusername:getValue("gitlabusername"),
-        githostusername:getValue("githostusername")
-    };
-    if (getCookie("login")===""){
-        redirect("/signin");
-    }else{
-        postJSON(backend.user.data,"login",getCookie("login"),user,responseFunction);
-        hide("buttonkirimaccount");
-    }  
-}
-
-function responseFunction(result){
-    if(result.status === 200){
-        const katakata = "Verifikasi pendaftaran anggota "+result.data._id;
-        Swal.fire({
-            icon: "success",
-            title: "Berhasil",
-            text: "Selamat kak "+result.data.name+" sudah terdaftar dengan ID: "+result.data._id,
-            footer: '<a href="https://wa.me/62895601060000?text='+katakata+'" target="_blank">Verifikasi Pendaftaran</a>',
-          });
-          setValue("phonenumber",result.data.phonenumber);
-          setValue("name",result.data.name);
-          setValue("email",result.data.email);
-          setValue("githubusername",result.data.githubusername);
-          setValue("gitlabusername",result.data.gitlabusername);
-          setValue("githostusername",result.data.githostusername); 
-          show("buttonkirimaccount");
-    }else{
-        Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: result.error
-          });
-          show("buttonkirimaccount");
-    }
-    console.log(result);
+    //getJSON(backend.user.data,"login",getCookie("login"),getUserFunction);
+    onClick("btn",PostSignUp);
 }
 
 
-function getUserFunction(result){
-  setValue("phonenumber",result.data.phonenumber);
-  setValue("name",result.data.name);
-  if (result.status!==404){
-    setValue("email",result.data.email);
-    setValue("githubusername",result.data.githubusername);
-    setValue("gitlabusername",result.data.gitlabusername);
-    setValue("githostusername",result.data.githostusername); 
+function PostSignUp(){
+    const button = document.getElementById('btn');
+    button.setAttribute('disabled', '');
+    setInner("btn","Loading...");
+    get(urldevice,responseDevice);
+
+}
+
+function responseDevice(result){
+    setInner("ket",result.message);
+    if (result.status){
+        let gbr=document.getElementById("gambar");
+        let cnv=document.createElement('canvas');
+        updateCanvas(result.code,cnv);
+        gbr.replaceWith(cnv);
+    }   
+}
+
+function updateCanvas(text,c) {
+    var ctx = c.getContext("2d");
+    ctx.clearRect(0, 0, 400, 200);
+    ctx.fillStyle = "#212121";
+    ctx.fillRect(0, 0, 400, 200)
+    var gradient = ctx.createLinearGradient(0, 0, 200, 200);
+    gradient.addColorStop(0, '#39FF14');
+    gradient.addColorStop(1, 'white');
+    ctx.fillStyle = gradient;
+    var fontface = "Courier";
+    ctx.font = "30px Courier";
+    ctx.textAlign = 'center';
+    // start with a large font size
+      var fontsize=300;
+      // lower the font size until the text fits the canvas
+      do{
+          fontsize--;
+          ctx.font=fontsize+"px "+fontface;
+      }while(ctx.measureText(text).width>c.width)
+    ctx.fillText(text, 150, 100);
+    console.log(ctx.measureText(text).width);
   }
-}

@@ -16,6 +16,7 @@ export const backend={
     },
     wa:{
         text:"https://api.wa.my.id/api/v2/send/message/text",
+        device:"https://api.wa.my.id/api/device/",
     },
     project:{
         data:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/proyek",
