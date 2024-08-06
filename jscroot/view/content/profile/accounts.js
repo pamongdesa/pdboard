@@ -41,7 +41,7 @@ function responseDevice(result){
         gbr.replaceWith("✅");
         //replace tombol string kosong
         let btn=document.getElementById("btn");
-        btn.replaceWith("");
+        btn.replaceWith("Selamat WhatsApp anda sudah tertaut di sistem ini");
     }  
 }
 
