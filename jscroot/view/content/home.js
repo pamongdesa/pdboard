@@ -25,6 +25,7 @@ export async function main() {
   setInner("biggreet", "Halo " + localStorage.getItem("nama"));
   getJSON(backend.helpdesk.all, "login", getCookie("login"), getUserTaskFunction);
   getJSON(backend.helpdesk.masuk, "login", getCookie("login"), isiTaskList);
+  getJSON(backend.helpdesk.selesai, "login", getCookie("login"), isiSelesai;
 }
 
 function getUserTaskFunction(result) {
@@ -50,7 +51,7 @@ function getUserTaskFunction(result) {
 }
 
 function isiTaskList(result) {
-  if(result.data){
+  if(result.data.nama){
     let content = tableTemplate
     .replace("#TASKNAME#", result.data.nama)
     .replace("#TASKID#", result.data.phone)
@@ -59,9 +60,20 @@ function isiTaskList(result) {
   // Jalankan logika tambahan setelah addChild
   runAfterAddChild(result.data);
   }
-  
 }
 
+function isiSelesai(result) {
+  if(result.data.nama){
+    let content = tableTemplate
+    .replace("#TASKNAME#", result.data.nama)
+    .replace("#TASKID#", result.data.phone)
+    .replace("#LABEL#", "Chat");
+  addChild("doing", "tr", "", content);
+  // Jalankan logika tambahan setelah addChild
+  runAfterAddChild(result.data);
+  }
+  
+}
 function runAfterAddChild(value) {
   // Temukan elemen tr yang baru saja ditambahkan
   const rows = document.getElementById("list").getElementsByTagName("tr");
