@@ -1,9 +1,7 @@
 import { onClick,setInner } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
-import {postJSON,putJSON,get} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/api.js";
+import {putJSON,get} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/api.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
-import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {addCSSIn} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
-import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js';
 import { id, backend } from "../../../url/config.js";
 
 export async function main(){
