@@ -25,7 +25,7 @@ export async function main() {
   setInner("biggreet", "Halo " + localStorage.getItem("nama"));
   getJSON(backend.helpdesk.all, "login", getCookie("login"), getUserTaskFunction);
   getJSON(backend.helpdesk.masuk, "login", getCookie("login"), isiTaskList);
-  getJSON(backend.helpdesk.selesai, "login", getCookie("login"), isiSelesai;
+  getJSON(backend.helpdesk.selesai, "login", getCookie("login"), isiSelesai);
 }
 
 function getUserTaskFunction(result) {
