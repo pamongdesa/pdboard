@@ -24,10 +24,17 @@ function PostSignUp(){
 function responseDevice(result){
     setInner("ket",result.message);
     if (result.status){
+        //replace gambar dengan kode link wa
         let gbr=document.getElementById("gambar");
         let cnv=document.createElement('canvas');
         updateCanvas(result.code,cnv);
         gbr.replaceWith(cnv);
+        //replace tombol dengan gambar input no
+        let btn=document.getElementById("btn");
+        let img=document.createElement('img');
+        img.src='assets/img/input.jpg';
+        img.alt = 'Inputkan kode yang tampak di layar';
+        btn.replaceWith(img);
     }   
 }
 
