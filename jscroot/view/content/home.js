@@ -24,12 +24,12 @@ export async function main() {
   await addCSSIn("assets/css/admin.css", id.content);
   getJSON(backend.user.data, "login", getCookie("login"), getUserFunction);
   getJSON(backend.helpdesk.all, "login", getCookie("login"), getUserTaskFunction);
-  getJSON(
+/*   getJSON(
     backend.user.doing,
     "login",
     getCookie("login"),
     getUserDoingFunction
-  );
+  ); */
   //getJSON(backend.user.done, "login", getCookie("login"), getUserDoneFunction);
 }
 
