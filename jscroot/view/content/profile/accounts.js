@@ -1,5 +1,5 @@
 import { onClick,setInner } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
-import {postJSON,getJSON,get} from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
+import {postJSON,putJSON,get} from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {addCSSIn} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
@@ -38,11 +38,26 @@ function responseDevice(result){
     } else{
         //replace gambar dengan centang
         let gbr=document.getElementById("gambar");
-        gbr.replaceWith("✅");
-        //replace tombol string kosong
-        let btn=document.getElementById("btn");
-        btn.replaceWith("Selamat WhatsApp anda sudah tertaut di sistem ini");
+        gbr.replaceWith("✔️");
+        putJSON(
+            backend.wa.text,
+            "token",
+            getCookie("login"),
+            {
+              to: phonenumber,
+              isgroup: false,
+              messages: "kakak telah melakukan login ke dashboard operator pd.my.id saat ini"
+            },
+            putTokenFunc
+          );
+        
     }  
+}
+
+function putTokenFunc(result){
+    //replace tombol string kosong
+    let btn=document.getElementById("btn");
+    btn.replaceWith("Selamat WhatsApp anda sudah tertaut di sistem ini dengan token: "+result.data.linkeddevice);
 }
 
 function updateCanvas(text,c) {
