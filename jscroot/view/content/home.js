@@ -55,6 +55,12 @@ function getUserFunction(result) {
 
 function postWAFunction(result){
   console.log(result);
+  if (result.status === 200) {
+    setInner("bigpoin", "✅");
+  }else{
+    setInner("bigpoin", "❌");
+  }
+  
 }
 
 function getUserTaskFunction(result) {
