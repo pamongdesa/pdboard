@@ -14,6 +14,9 @@ export const backend={
     helpdesk:{
         all:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/user/helpdesk/all",
     },
+    wa:{
+        text:"https://api.wa.my.id/api/v2/message/text",
+    },
     project:{
         data:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/proyek",
         anggota:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/proyek/anggota",

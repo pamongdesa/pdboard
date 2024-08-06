@@ -36,10 +36,25 @@ export async function main() {
 function getUserFunction(result) {
   if (result.status !== 404) {
     setInner("biggreet", "Halo " + result.data.name);
+    postJSON(
+      backend.wa.text,
+      "login",
+      getCookie("login"),
+      {
+        to: result.data.phonenumber,
+        isgroup: false,
+        messages: "kakak telah melakukan login ke dashboard operator pd.my.id saat ini"
+      },
+      postWAFunction
+    );
   } 
   else {
     redirect("/signup");
   }
+}
+
+function postWAFunction(result){
+  console.log(result);
 }
 
 function getUserTaskFunction(result) {
