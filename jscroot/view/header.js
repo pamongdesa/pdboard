@@ -13,34 +13,19 @@ export function main() {
 
 function getUserFunction(result) {
   if (result.status !== 404) {
-    const { name, phonenumber } = result.data;
-    postJSON(
-      backend.wa.text,
-      "token",
-      getCookie("login"),
-      {
-        to: phonenumber,
-        isgroup: false,
-        messages: "kakak telah melakukan login ke dashboard operator pd.my.id saat ini"
-      },
-      postWAFunction
-    );
+    const { name, linkeddevice } = result.data;
     setInner("headerlogoname", name);
     // Simpan ke localStorage
     localStorage.setItem("nama", name);
+    if (linkeddevice) {
+      setInner("userPoint", "✅");
+      localStorage.setItem("status", "✅");
+    }else{
+      setInner("userPoint", "❌");
+      localStorage.setItem("status", "❌");
+    }
   } 
   else {
     redirect("/login");
-  }
-}
-
-function postWAFunction(result){
-  console.log(result);
-  if (result.status === 200) {
-    setInner("userPoint", "✅");
-    localStorage.setItem("status", "✅");
-  }else{
-    setInner("userPoint", "❌");
-    localStorage.setItem("status", "❌");
   }
 }
