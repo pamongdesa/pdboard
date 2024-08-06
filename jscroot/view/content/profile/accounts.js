@@ -40,14 +40,10 @@ function responseDevice(result){
         let gbr=document.getElementById("gambar");
         gbr.replaceWith("✔️");
         putJSON(
-            backend.wa.text,
-            "token",
+            backend.user.data,
+            "login",
             getCookie("login"),
-            {
-              to: phonenumber,
-              isgroup: false,
-              messages: "kakak telah melakukan login ke dashboard operator pd.my.id saat ini"
-            },
+            {},
             putTokenFunc
           );
         
