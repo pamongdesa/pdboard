@@ -22,45 +22,8 @@ let tableTemplate = `
 
 export async function main() {
   await addCSSIn("assets/css/admin.css", id.content);
-  getJSON(backend.user.data, "login", getCookie("login"), getUserFunction);
+  setInner("biggreet", "Halo " + localStorage.getItem("nama"));
   getJSON(backend.helpdesk.all, "login", getCookie("login"), getUserTaskFunction);
-/*   getJSON(
-    backend.user.doing,
-    "login",
-    getCookie("login"),
-    getUserDoingFunction
-  ); */
-  //getJSON(backend.user.done, "login", getCookie("login"), getUserDoneFunction);
-}
-
-function getUserFunction(result) {
-  if (result.status !== 404) {
-    setInner("biggreet", "Halo " + result.data.name);
-    postJSON(
-      backend.wa.text,
-      "token",
-      getCookie("login"),
-      {
-        to: result.data.phonenumber,
-        isgroup: false,
-        messages: "kakak telah melakukan login ke dashboard operator pd.my.id saat ini"
-      },
-      postWAFunction
-    );
-  } 
-  else {
-    redirect("/signup");
-  }
-}
-
-function postWAFunction(result){
-  console.log(result);
-  if (result.status === 200) {
-    setInner("bigpoin", "✅");
-  }else{
-    setInner("bigpoin", "❌");
-  }
-  
 }
 
 function getUserTaskFunction(result) {
@@ -70,6 +33,7 @@ function getUserTaskFunction(result) {
     setInner("bigtodo", result.data.todo);
     setInner("bigdoing", result.data.done);
     setInner("bigdone", result.data.all);
+    setInner("bigpoin", localStorage.getItem("status"));
     setInner(
       "subtitle",
       "Jumlah total user komplain yang masuk " +
