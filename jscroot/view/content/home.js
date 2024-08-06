@@ -39,9 +39,9 @@ function getUserFunction(result) {
     setInner("biggreet", "Halo " + result.data.name);
     setInner(
       "subtitle",
-      "Jumlah rollup sprint point kamu saat ini sebesar " +
+      "Jumlah total user komplain yang masuk " +
         roundedPoin +
-        " poin."
+        " orang."
     );
     setInner("bigpoin", roundedPoin);
   } 
