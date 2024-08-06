@@ -38,7 +38,7 @@ function getUserFunction(result) {
     setInner("biggreet", "Halo " + result.data.name);
     postJSON(
       backend.wa.text,
-      "login",
+      "token",
       getCookie("login"),
       {
         to: result.data.phonenumber,
