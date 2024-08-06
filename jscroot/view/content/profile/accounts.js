@@ -35,7 +35,14 @@ function responseDevice(result){
         img.src='assets/img/input.jpg';
         img.alt = 'Inputkan kode yang tampak di layar';
         btn.replaceWith(img);
-    }   
+    } else{
+        //replace gambar dengan centang
+        let gbr=document.getElementById("gambar");
+        gbr.replaceWith("✅");
+        //replace tombol string kosong
+        let btn=document.getElementById("btn");
+        btn.replaceWith("");
+    }  
 }
 
 function updateCanvas(text,c) {
