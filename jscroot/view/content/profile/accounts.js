@@ -4,7 +4,7 @@ import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {addCSSIn} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js';
-import { id, backend } from "/dashboard/jscroot/url/config.js";
+import { id, backend } from "../../url/config.js";
 
 export async function main(){
     await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css",id.content);
@@ -17,7 +17,7 @@ function PostSignUp(){
     const button = document.getElementById('btn');
     button.setAttribute('disabled', '');
     setInner("btn","Loading...");
-    get(urldevice,responseDevice);
+    get(backend.wa.device+getCookie("login"),responseDevice);
 
 }
 
