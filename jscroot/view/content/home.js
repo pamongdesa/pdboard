@@ -30,20 +30,12 @@ export async function main() {
     getCookie("login"),
     getUserDoingFunction
   );
-  getJSON(backend.user.done, "login", getCookie("login"), getUserDoneFunction);
+  //getJSON(backend.user.done, "login", getCookie("login"), getUserDoneFunction);
 }
 
 function getUserFunction(result) {
   if (result.status !== 404) {
-    const roundedPoin = Math.round(result.data.poin);
     setInner("biggreet", "Halo " + result.data.name);
-    setInner(
-      "subtitle",
-      "Jumlah total user komplain yang masuk " +
-        roundedPoin +
-        " orang."
-    );
-    setInner("bigpoin", roundedPoin);
   } 
   else {
     redirect("/signup");
@@ -57,6 +49,12 @@ function getUserTaskFunction(result) {
     setInner("bigtodo", result.data.todo);
     setInner("bigdoing", result.data.done);
     setInner("bigdone", result.data.all);
+    setInner(
+      "subtitle",
+      "Jumlah total user komplain yang masuk " +
+      result.data.done +
+        " orang."
+    );
   }
 }
 
