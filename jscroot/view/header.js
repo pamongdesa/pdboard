@@ -18,11 +18,10 @@ function getUserFunction(result) {
     // Simpan ke localStorage
     localStorage.setItem("nama", name);
     if (linkeddevice) {
-      setInner("userPoint", "✅");
-      localStorage.setItem("status", "✅");
+      setInner("userPoint", "✔️");
+      localStorage.setItem("status", "ok");
     }else{
       setInner("userPoint", "❌");
-      localStorage.setItem("status", "❌");
     }
   } 
   else {
