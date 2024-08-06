@@ -23,7 +23,7 @@ let tableTemplate = `
 export async function main() {
   await addCSSIn("assets/css/admin.css", id.content);
   getJSON(backend.user.data, "login", getCookie("login"), getUserFunction);
-  getJSON(backend.user.todo, "login", getCookie("login"), getUserTaskFunction);
+  getJSON(backend.helpdesk.all, "login", getCookie("login"), getUserTaskFunction);
   getJSON(
     backend.user.doing,
     "login",
@@ -54,8 +54,9 @@ function getUserTaskFunction(result) {
   setInner("list", "");
   setInner("bigtodo", "0");
   if (result.status === 200) {
-    setInner("bigtodo", result.data.length.toString());
-    result.data.forEach(isiTaskList);
+    setInner("bigtodo", result.data.todo);
+    setInner("bigdoing", result.data.done);
+    setInner("bigdone", result.data.all);
   }
 }
 

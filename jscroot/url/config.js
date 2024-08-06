@@ -11,6 +11,9 @@ export const backend={
         doing:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/user/task/doing",
         done:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/user/task/done",
     },
+    helpdesk:{
+        all:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/user/helpdesk/all",
+    },
     project:{
         data:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/proyek",
         anggota:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/proyek/anggota",
