@@ -4,12 +4,24 @@ import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.
 import {addCSSIn} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js';
 import {validatePhoneNumber} from 'https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/validate.js';
+import {redirect} from 'https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/url.js';
 import { id, backend } from "../../../url/config.js";
 
 export async function main(){
     await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css",id.content);
-    onClick("tombolprogramtask",actionfunctionname);
-    onInput('phone',validatePhoneNumber);
+    if(localStorage.getItem("status")==="ok"){
+        onClick("tombolprogramtask",actionfunctionname);
+        onInput('phone',validatePhoneNumber);
+    }else{
+        Swal.fire({
+            icon: "error",
+            title: "Device belum ditautkan",
+            text: "Silakan masuk ke Linked Device pada menu Profile untuk menautkan perangkat WhatsApp Anda.",
+            didClose: () => {
+                redirect("#profile/accounts");
+            }
+          });
+    }
 }
 
 

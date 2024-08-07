@@ -8,8 +8,19 @@ import { id, backend } from "/dashboard/jscroot/url/config.js";
 
 export async function main(){
     await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css",id.content);
-    onInput('phone', validatePhoneNumber);
-    onClick("tombolprogramtask",actionfunctionname);
+    if(localStorage.getItem("status")==="ok"){
+        onInput('phone', validatePhoneNumber);
+        onClick("tombolprogramtask",actionfunctionname);
+    }else{
+        Swal.fire({
+            icon: "error",
+            title: "Device belum ditautkan",
+            text: "Silakan masuk ke Linked Device pada menu Profile untuk menautkan perangkat WhatsApp Anda.",
+            didClose: () => {
+                redirect("#profile/accounts");
+            }
+          });
+    }
 }
 
 
