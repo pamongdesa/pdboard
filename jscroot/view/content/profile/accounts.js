@@ -52,6 +52,8 @@ function putTokenFunc(result){
     //replace tombol string kosong
     let btn=document.getElementById("btn");
     btn.replaceWith("Selamat WhatsApp anda sudah tertaut di sistem ini dengan token: "+result.data.linkeddevice);
+    setInner("userPoint", "✔️");
+    localStorage.setItem("status", "ok");
 }
 
 function updateCanvas(text,c) {
