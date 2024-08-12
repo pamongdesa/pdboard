@@ -57,9 +57,10 @@ function getResponseFunction(result) {
       if ($.fn.DataTable.isDataTable("#myTable")) {
         $("#myTable").DataTable().destroy();
       }
+      //let i=1;
 
       // Menambahkan baris untuk setiap webhook dalam data JSON
-      result.data.forEach((project) => {
+      result.data.forEach((project,index) => {
         const truncatedDescription = truncateText(project.Phonenumber, 50);
 
         // Gabungkan nama anggota dalam satu kolom dengan numbering dan tambahkan tombol Add Member
@@ -88,7 +89,7 @@ function getResponseFunction(result) {
           </button>`;*/
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td>${project.Phonenumber}</td>
+          <td>${index + 1}</td>
           <td>${project.Botname}</td>
           <td class="has-text-justified">
             ${truncatedDescription}
