@@ -225,21 +225,21 @@ function addNumberButtonListeners() {
 
 function responseFunction(result) {
   if (result.status === 200) {
-    const nomortelpon = "Pembuatan proyek baru " + result.data.phonenumber;
+    const nomortelpon = result.data.phonenumber;
+    let msg;
+    if (result.data.status){
+      msg=result.data.message + " dengan Code: " +result.data.code;
+    }else{
+      msg=result.data.message + " dan sudah dimasukkan ke dalam sender blast";
+    }
     Swal.fire({
       icon: "success",
       title: "Berhasil",
-      text:
-        "Silahkan " +
-        result.data.message +
-        " status: " +
-        result.data.status +
-        " dengan Code: " +
-        result.data.code,
+      text:msg,
       footer:
         '<a href="https://wa.me/' +
         nomortelpon +
-        '" target="_blank">Verifikasi Nomor</a>',
+        '" target="_blank">Kontak Nomor</a>',
       didClose: () => {
         reloadDataTable();
       },
