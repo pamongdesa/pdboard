@@ -1,5 +1,6 @@
 import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
-import { id, backend } from "../../../url/config.js";
+import { backend } from "../../../url/config.js";
+import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js';
 
 
