@@ -10,9 +10,7 @@ export async function main() {
 
     const canvas = document.getElementById('messageChart');
     
-    // Ensure the canvas has width and height set
-    canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = canvas.parentElement.clientHeight;
+    
     
     var ctx = canvas.getContext('2d');
     var messageChart = new Chart(ctx, {
@@ -46,6 +44,10 @@ export async function main() {
             }
         }
     });
+
+    // Ensure the canvas has width and height set
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
     //messageChart.display();
     //messageChart.update();
 
