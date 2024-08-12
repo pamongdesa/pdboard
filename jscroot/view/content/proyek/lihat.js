@@ -2,7 +2,7 @@ import {
   getValue,
   onInput,
 } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.7/croot.js";
-import { postJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
+import { postJSON,putJSON } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/api.js";
 import { deleteJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.8/croot.js";
 import { putJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.8/croot.js";
 import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
@@ -197,22 +197,22 @@ function addNumberButtonListeners() {
         Swal.showValidationMessage(`Mohon melakukan linked device dahulu di menu profile`);
       } else {
         return {
-          name: name,
-          phonenumber: phonenumber,
+          Triggerword: name,
+          Phonenumber: phonenumber,
         };
       }
     },
   }).then((result) => {
     if (result.isConfirmed) {
       let resultData = {
-        name: getValue("name"),
-        phonenumber: getValue("phonenumber"),
+        Triggerword: getValue("name"),
+        Phonenumber: getValue("phonenumber"),
       };
       if (getCookie("login") === "") {
         redirect("/signin");
       } else {
-        postJSON(
-          backend.wa.data,
+        putJSON(
+          backend.sender.data,
           "login",
           getCookie("login"),
           resultData,
@@ -226,21 +226,21 @@ function addNumberButtonListeners() {
 
 function responseFunction(result) {
   if (result.status === 200) {
-    const katakata = "Pembuatan proyek baru " + result.data._id;
+    const nomortelpon = "Pembuatan proyek baru " + result.data.phonenumber;
     Swal.fire({
       icon: "success",
       title: "Berhasil",
       text:
-        "Selamat kak proyek " +
-        result.data.name +
-        " sudah terdaftar dengan ID: " +
-        result.data._id +
-        " dan Secret: " +
-        result.data.secret,
+        "Silahkan " +
+        result.data.message +
+        " status: " +
+        result.data.status +
+        " dengan Code: " +
+        result.data.code,
       footer:
-        '<a href="https://wa.me/62895601060000?text=' +
-        katakata +
-        '" target="_blank">Verifikasi Proyek</a>',
+        '<a href="https://wa.me/' +
+        nomortelpon +
+        '" target="_blank">Verifikasi Nomor</a>',
       didClose: () => {
         reloadDataTable();
       },
