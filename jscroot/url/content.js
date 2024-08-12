@@ -18,6 +18,8 @@ export function getContentURL(){
             return url.template.content+"messages.html";
         case "proyek/lihat":
             return url.template.content+"proyek/lihat.html";    
+        case "proyek/blokir":
+            return url.template.content+"proyek/blokir.html";    
         case "proyek/anggota":
             return url.template.content+"proyek/anggota.html";   
         case "proyek/buat":
@@ -61,8 +63,10 @@ export function getURLContentJS(){
             return url.view.content+"messages.js";
         case "proyek/lihat":
             return url.view.content+"proyek/lihat.js";
+        case "proyek/blokir":
+            return url.view.content+"proyek/blokir.js";
         case "proyek/anggota":
-            return url.view.content+"proyek/anggota.js";
+        return url.view.content+"proyek/anggota.js";
         case "proyek/buat":
             return url.view.content+"proyek/buat.js";
         case "proyek/akses":
