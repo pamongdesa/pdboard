@@ -4,40 +4,49 @@ import { id, backend } from "../../../url/config.js";
 
 export async function main() {
     await addCSSIn("assets/css/report.css", id.content);
-    
-    var ctx = document.getElementById('messageChart').getContext('2d');
-    var messageChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Messages Sent', 'Messages Queued'],
-            datasets: [{
-                label: 'Messages',
-                data: [50, 30], // Ganti dengan data yang sesuai
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(255, 206, 86, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 206, 86, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+
+    // Step 4: Run after all loaded
+    window.addEventListener('load', (event) => {
+
+        var ctx = document.getElementById('messageChart').getContext('2d');
+        var messageChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Messages Sent', 'Messages Queued'],
+                datasets: [{
+                    label: 'Messages',
+                    data: [50, 30], // Ganti dengan data yang sesuai
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
             },
-            plugins: {
-                legend: {
-                    display: false
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
                 }
             }
-        }
+        });
+        messageChart.update();
+    
+    //This includes after-all assets like images, scripts, and CSS files.
+    //Loaded
+    console.log('The page has fully loaded');
     });
-    messageChart.update();
+    
 
 }
 
