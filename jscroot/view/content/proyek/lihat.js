@@ -188,7 +188,7 @@ document.getElementById("addButton").addEventListener("click", () => {
     title: "Tambah nomor baru",
     html: `
             <div class="field">
-                <label class="label">Nama Panggilan</label>
+                <label class="label">Nama Bot</label>
                 <div class="control">
                     <input class="input" type="text" id="name" placeholder="huruf kecil tanpa spasi boleh pakai - dan _">
                 </div>
