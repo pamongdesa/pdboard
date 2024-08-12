@@ -27,6 +27,7 @@ export const backend={
     sender:{
         data:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/sender",
         blokir:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/blokir",
+        rekap:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/rekap",
     },
     ux:{
         feedback:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/notif/ux/postfeedback",
