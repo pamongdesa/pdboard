@@ -63,7 +63,7 @@ function getResponseFunction(result) {
         const truncatedDescription = truncateText(project.description, 50);
 
         // Gabungkan nama anggota dalam satu kolom dengan numbering dan tambahkan tombol Add Member
-        let membersHtml =
+        /* let membersHtml =
           project.members && project.members.length > 0
             ? project.members
                 .map(
@@ -85,21 +85,20 @@ function getResponseFunction(result) {
           <button class="button box is-primary is-small btn-flex addMemberButton" data-project-id="${project._id}">
             <i class="bx bx-plus"></i>
             Add member
-          </button>`;
-
+          </button>`;*/
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td>${project.name}</td>
-          <td>${membersHtml}</td>
+          <td>${project.Phonenumber}</td>
+          <td>${project.Botname}</td>
           <td class="has-text-justified">
             ${truncatedDescription}
             <span class="full-text" style="display:none;">${project.description}</span>
           </td>
           <td class="has-text-centered">
-            <button class="button is-danger removeProjectButton" data-project-name="${project.name}">
+            <button class="button is-danger removeProjectButton" data-project-name="${project.Triggerword}">
               <i class="bx bx-trash"></i>          
             </button>
-            <button class="button is-warning editProjectButton" data-project-id="${project._id}" data-project-name="${project.name}" data-project-wagroupid="${project.wagroupid}" data-project-repoorg="${project.repoorg}" data-project-repologname="${project.repologname}" data-project-description="${project.description}">
+            <button class="button is-warning editProjectButton" data-project-id="${project.Phonenumber}" data-project-name="${project.Phonenumber}" data-project-wagroupid="${project.Phonenumber}" data-project-repoorg="${project.Phonenumber}" data-project-repologname="${project.Phonenumber}" data-project-description="${project.Phonenumber}">
               <i class="bx bx-edit"></i>
             </button>
           </td>
