@@ -188,7 +188,7 @@ document.getElementById("addButton").addEventListener("click", () => {
     title: "Tambah nomor baru",
     html: `
             <div class="field">
-                <label class="label">Nama Lengkap</label>
+                <label class="label">Nama Panggilan</label>
                 <div class="control">
                     <input class="input" type="text" id="name" placeholder="huruf kecil tanpa spasi boleh pakai - dan _">
                 </div>
@@ -199,12 +199,6 @@ document.getElementById("addButton").addEventListener("click", () => {
                     <input class="input" type="text" id="phonenumber" placeholder="Nomor baru untuk broadcast">
                 </div>
             </div>
-            <div class="field">
-                <label class="label">Nama Panggilan</label>
-                <div class="control">
-                    <input class="input" type="text" id="triggername" placeholder="nama pendek panggilan">
-                </div>
-            </div>
         `,
     showCancelButton: true,
     confirmButtonText: "Add",
@@ -212,21 +206,18 @@ document.getElementById("addButton").addEventListener("click", () => {
     preConfirm: () => {
       const name = Swal.getPopup().querySelector("#name").value;
       const phonenumber = Swal.getPopup().querySelector("#phonenumber").value;
-      const triggername = Swal.getPopup().querySelector("#triggername").value;
 
       const namePattern = /^[a-z0-9_-]+$/;
-      if (!name || !phonenumber || !triggername) {
-        Swal.showValidationMessage(`Please enter all fields`);
+      if (!name || !phonenumber) {
+        Swal.showValidationMessage(`Lengkapi dahulu semua isian`);
       } else if (!namePattern.test(name)) {
         Swal.showValidationMessage(
-          `Project Name hanya boleh mengandung huruf kecil, angka, '-' dan '_'`
+          `nama hanya boleh mengandung huruf kecil, angka, '-' dan '_'`
         );
       } else {
         return {
           name: name,
           phonenumber: phonenumber,
-          description: description,
-          triggername: triggername,
         };
       }
     },
@@ -235,13 +226,12 @@ document.getElementById("addButton").addEventListener("click", () => {
       let resultData = {
         name: getValue("name"),
         phonenumber: getValue("phonenumber"),
-        triggername: getValue("triggername"),
       };
       if (getCookie("login") === "") {
         redirect("/signin");
       } else {
         postJSON(
-          backend.project.data,
+          backend.wa.data,
           "login",
           getCookie("login"),
           resultData,
