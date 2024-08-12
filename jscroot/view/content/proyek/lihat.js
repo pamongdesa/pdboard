@@ -193,10 +193,6 @@ function addNumberButtonListeners() {
       const namePattern = /^[a-z0-9_-]+$/;
       if (!name || !phonenumber) {
         Swal.showValidationMessage(`Lengkapi dahulu semua isian`);
-      } else if (!namePattern.test(name)) {
-        Swal.showValidationMessage(
-          `nama hanya boleh mengandung huruf kecil, angka, '-' dan '_'`
-        );
       } else if(localStorage.getItem("status")!=="ok"){
         Swal.showValidationMessage(`Mohon melakukan linked device dahulu di menu profile`);
       } else {
