@@ -4,7 +4,6 @@ import { id, backend } from "../../../url/config.js";
 export async function main() {
     await addCSSIn("assets/css/report.css", id.content);
     
-    document.addEventListener('DOMContentLoaded', function () {
     var ctx = document.getElementById('messageChart').getContext('2d');
     var messageChart = new Chart(ctx, {
         type: 'bar',
@@ -37,7 +36,7 @@ export async function main() {
             }
         }
     });
-});
+
 }
 
 
