@@ -11,7 +11,7 @@ import { addCSSIn } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croo
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
 import { id, backend } from "../../../url/config.js";
 import { loadScript } from "../../../controller/main.js";
-import { truncateText, addRevealTextListeners } from "../../utils.js";
+import { addRevealTextListeners } from "../../utils.js";
 import {validatePhoneNumber,validateUserName} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/validate.js";
 import {onClick}  from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/element.js";
 
@@ -63,30 +63,6 @@ function getResponseFunction(result) {
 
       // Menambahkan baris untuk setiap webhook dalam data JSON
       result.data.forEach((project,index) => {
-        // Gabungkan nama anggota dalam satu kolom dengan numbering dan tambahkan tombol Add Member
-        /* let membersHtml =
-          project.members && project.members.length > 0
-            ? project.members
-                .map(
-                  (member, index) =>
-                    `
-                    <div class="tag is-success mb-3">
-                       ${index + 1}. ${member.name}
-                      <button class="delete is-small removeMemberButton" data-project-name="${
-                        project.name
-                      }" data-member-phonenumber="${
-                      member.phonenumber
-                    }"></button>
-                    </div>
-                  `
-                )
-                .join("<br>") // Tambahkan <br> untuk membuat baris baru untuk setiap anggota
-            : "";
-        membersHtml += `
-          <button class="button box is-primary is-small btn-flex addMemberButton" data-project-id="${project._id}">
-            <i class="bx bx-plus"></i>
-            Add member
-          </button>`;*/
         const row = document.createElement("tr");
         row.innerHTML = `
           <td>${index + 1}</td>
@@ -184,8 +160,7 @@ function addMemberButtonListeners() {
   });
 }
 
-// Add project event listener
-
+// Add number blast event listener
 function addNumberButtonListeners() {
   Swal.fire({
     title: "Tambah nomor baru",
@@ -222,6 +197,8 @@ function addNumberButtonListeners() {
         Swal.showValidationMessage(
           `nama hanya boleh mengandung huruf kecil, angka, '-' dan '_'`
         );
+      } else if(localStorage.getItem("status")!=="ok"){
+        Swal.showValidationMessage(`Mohon melakukan linked device dahulu di menu profile`);
       } else {
         return {
           name: name,
