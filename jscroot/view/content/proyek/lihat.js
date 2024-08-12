@@ -96,12 +96,7 @@ function getResponseFunction(result) {
             <span class="full-text" style="display:none;">${project.Phonenumber}</span>
           </td>
           <td class="has-text-centered">
-            <button class="button is-danger removeProjectButton" data-project-name="${project.Triggerword}">
-              <i class="bx bx-trash"></i>          
-            </button>
-            <button class="button is-warning editProjectButton" data-project-id="${project.Phonenumber}" data-project-name="${project.Phonenumber}" data-project-wagroupid="${project.Phonenumber}" data-project-repoorg="${project.Phonenumber}" data-project-repologname="${project.Phonenumber}" data-project-description="${project.Phonenumber}">
-              <i class="bx bx-edit"></i>
-            </button>
+            <td>${project.Triggerword}</td>
           </td>
         `;
         tableBody.appendChild(row);
