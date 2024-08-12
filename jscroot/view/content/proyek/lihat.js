@@ -61,8 +61,6 @@ function getResponseFunction(result) {
 
       // Menambahkan baris untuk setiap webhook dalam data JSON
       result.data.forEach((project,index) => {
-        const truncatedDescription = truncateText(project.Phonenumber, 50);
-
         // Gabungkan nama anggota dalam satu kolom dengan numbering dan tambahkan tombol Add Member
         /* let membersHtml =
           project.members && project.members.length > 0
@@ -92,7 +90,7 @@ function getResponseFunction(result) {
           <td>${index + 1}</td>
           <td>${project.Botname}</td>
           <td class="has-text-justified">
-            ${truncatedDescription}
+            <a href="https://wa.me/${project.Phonenumber}" target="_blank">${project.Phonenumber}</a>
             <span class="full-text" style="display:none;">${project.Phonenumber}</span>
           </td>
           <td>${project.Triggerword}</td>
