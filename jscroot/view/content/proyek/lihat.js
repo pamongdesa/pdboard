@@ -4,7 +4,6 @@ import {
 } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.7/croot.js";
 import { postJSON,putJSON } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/api.js";
 import { deleteJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.8/croot.js";
-import { putJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.8/croot.js";
 import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
 import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import { addCSSIn } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
