@@ -5,8 +5,6 @@ import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js';
 
 Chart.register(...registerables);
 
-let messageChart;
-
 export async function main() {
     await addCSSIn("assets/css/report.css", id.content);
     
@@ -42,7 +40,7 @@ export async function main() {
             }
         }
     });
-    messageChart.display();
+    //messageChart.display();
     //messageChart.update();
 
 }
