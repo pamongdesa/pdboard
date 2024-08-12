@@ -95,9 +95,7 @@ function getResponseFunction(result) {
             ${truncatedDescription}
             <span class="full-text" style="display:none;">${project.Phonenumber}</span>
           </td>
-          <td class="has-text-centered">
-            <td>${project.Triggerword}</td>
-          </td>
+          <td>${project.Triggerword}</td>
         `;
         tableBody.appendChild(row);
       });
