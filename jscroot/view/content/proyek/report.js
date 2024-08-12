@@ -7,8 +7,14 @@ Chart.register(...registerables);
 
 export async function main() {
     await addCSSIn("assets/css/report.css", id.content);
+
+    const canvas = document.getElementById('messageChart');
     
-    var ctx = document.getElementById('messageChart').getContext('2d');
+    // Ensure the canvas has width and height set
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
+    
+    var ctx = canvas.getContext('2d');
     var messageChart = new Chart(ctx, {
         type: 'bar',
         data: {
