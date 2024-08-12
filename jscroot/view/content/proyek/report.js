@@ -42,7 +42,7 @@ export async function main() {
             }
         }
     });
-    messageChart.update();
+    //messageChart.update();
 
 }
 
