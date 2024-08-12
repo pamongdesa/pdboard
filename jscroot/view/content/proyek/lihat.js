@@ -60,7 +60,7 @@ function getResponseFunction(result) {
 
       // Menambahkan baris untuk setiap webhook dalam data JSON
       result.data.forEach((project) => {
-        const truncatedDescription = truncateText(project.description, 50);
+        const truncatedDescription = truncateText(project.Phonenumber, 50);
 
         // Gabungkan nama anggota dalam satu kolom dengan numbering dan tambahkan tombol Add Member
         /* let membersHtml =
