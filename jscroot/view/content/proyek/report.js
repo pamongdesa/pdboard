@@ -2,7 +2,7 @@ import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js"
 import { backend } from "../../../url/config.js";
 import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js';
-
+import {setInner} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/element.js";
 
 Chart.register(...registerables);
 
@@ -21,6 +21,7 @@ export async function main() {
 function getResponseFunction(result) {
     const canvas = document.getElementById('messageChart');
     var ctx = canvas.getContext('2d');
+    setInner("biggreet","Total data: "+result.data.all);
     var messageChart = new Chart(ctx, {
         type: 'bar',
         data: {
