@@ -24,6 +24,10 @@ export const backend={
         data:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/proyek",
         anggota:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/proyek/anggota",
     },
+    sender:{
+        data:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/sender",
+        anggota:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/data/proyek/anggota",
+    },
     ux:{
         feedback:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/notif/ux/postfeedback",
         laporan:"https://asia-southeast2-awangga.cloudfunctions.net/pamongdesa/notif/ux/postlaporan",

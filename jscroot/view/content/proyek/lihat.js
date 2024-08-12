@@ -26,7 +26,7 @@ export async function main() {
   await loadScript("https://cdn.datatables.net/2.0.8/js/dataTables.min.js");
 
   getJSON(
-    backend.project.data,
+    backend.sender.data,
     "login",
     getCookie("login"),
     getResponseFunction
@@ -38,7 +38,7 @@ function reloadDataTable() {
     dataTable.destroy(); // Destroy the existing DataTable
   }
   getJSON(
-    backend.project.data,
+    backend.sender.data,
     "login",
     getCookie("login"),
     getResponseFunction
