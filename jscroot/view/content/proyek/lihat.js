@@ -13,10 +13,12 @@ import { id, backend } from "../../../url/config.js";
 import { loadScript } from "../../../controller/main.js";
 import { truncateText, addRevealTextListeners } from "../../utils.js";
 import {validatePhoneNumber,validateUserName} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/validate.js";
+import {onClick}  from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/element.js";
 
 let dataTable;
 
 export async function main() {
+  onClick("addButton",addNumberButtonListeners);
   await addCSSIn(
     "https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css",
     id.content
@@ -183,7 +185,8 @@ function addMemberButtonListeners() {
 }
 
 // Add project event listener
-document.getElementById("addButton").addEventListener("click", () => {
+
+function addNumberButtonListeners() {
   Swal.fire({
     title: "Tambah nomor baru",
     html: `
@@ -245,7 +248,7 @@ document.getElementById("addButton").addEventListener("click", () => {
       }
     }
   });
-});
+}
 
 
 function responseFunction(result) {
