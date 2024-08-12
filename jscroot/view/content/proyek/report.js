@@ -42,6 +42,7 @@ export async function main() {
             }
         }
     });
+    messageChart.display();
     //messageChart.update();
 
 }
