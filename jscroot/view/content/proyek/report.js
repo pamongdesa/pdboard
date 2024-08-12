@@ -6,7 +6,7 @@ import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js';
 Chart.register(...registerables);
 
 export async function main() {
-    await addCSSIn("assets/css/report.css", id.content);
+    //await addCSSIn("assets/css/report.css", id.content);
 
     const canvas = document.getElementById('messageChart');
     
