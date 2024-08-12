@@ -211,10 +211,8 @@ document.getElementById("addButton").addEventListener("click", () => {
     cancelButtonText: "Cancel",
     preConfirm: () => {
       const name = Swal.getPopup().querySelector("#name").value;
-      const wagroupid = Swal.getPopup().querySelector("#wagroupid").value;
-      const description = Swal.getPopup().querySelector("#description").value;
-      const repoOrg = Swal.getPopup().querySelector("#repoorg").value;
-      const repoLogName = Swal.getPopup().querySelector("#repologname").value;
+      const phonenumber = Swal.getPopup().querySelector("#phonenumber").value;
+      const triggername = Swal.getPopup().querySelector("#triggername").value;
 
       const namePattern = /^[a-z0-9_-]+$/;
       if (!name || !phonenumber || !triggername) {
