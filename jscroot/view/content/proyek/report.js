@@ -1,6 +1,5 @@
 import { addCSSIn } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
 import { id, backend } from "../../../url/config.js";
-import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js';
 
 
 export async function main() {
