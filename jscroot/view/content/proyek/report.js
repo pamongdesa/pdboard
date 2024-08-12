@@ -36,6 +36,7 @@ export async function main() {
             }
         }
     });
+    messageChart.update();
 
 }
 
