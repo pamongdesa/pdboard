@@ -54,7 +54,7 @@ function responseFunction(result){
             title: "Gagal Mengirim Pesan",
             text: result.data.error
           });
-          show("tombolpublishtask");
+          show("tombolprogramtask");
     }
     console.log(result);
 }
